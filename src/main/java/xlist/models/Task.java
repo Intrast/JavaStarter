@@ -3,7 +3,7 @@ package xlist.models;
 public class Task {
     //private long_id;
     private String listName;
-    public Boolean check;
+    private Boolean check;
 
 
     public Task() {
@@ -17,6 +17,7 @@ public class Task {
     public void setListName(String listName) {
         this.listName = listName;
     }
+
 
     public Boolean getCheck() {
         return check;
