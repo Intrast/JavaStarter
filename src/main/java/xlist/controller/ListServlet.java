@@ -7,12 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
 
 /**
  * Створює, відображає і видаліє замітку
  */
-@WebServlet(name = "NoteServlet", value = {"/note/*"})
-public class NoteServlet extends HttpServlet {
+@WebServlet(name = "ListServlet", value = {"/list/*"})
+public class ListServlet extends HttpServlet {
+    private static Logger log = Logger.getLogger(ListServlet.class.getName());
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -22,8 +24,8 @@ public class NoteServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         switch (request.getPathInfo()) {
-            case "/list-notes":
-                out.write("<H1>List Note!</H1>");
+            case "/all-list":
+                out.write("<H1>All List</H1>");
                 out.println("<button type=\"button\" class=\"btn btn-primary\">Підготовлена</button>");
                 break;
             case "/view-note":
