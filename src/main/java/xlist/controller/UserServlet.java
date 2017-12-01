@@ -43,9 +43,8 @@ public class UserServlet extends HttpServlet {
                     session.setAttribute("user", user);
                     out.println("<h1>hello зареєстрований користувач user</h1>");
                     log.info("Logged user " + user);
-                } else {
-                    response.sendRedirect("/");
                 }
+                response.sendRedirect("/");
                 break;
         }
     }
@@ -68,7 +67,7 @@ public class UserServlet extends HttpServlet {
                         .collect(Collectors.joining(" "));
                 //виводимо в браузер інформацію у вигляді HTML
                 //TODO вивід потрібно зробити в класах пакету view (вигляд)
-                out.write("<H1>List Users!</H1>");
+                out.write("<H1>AllList Users!</H1>");
                 out.println("<h3>" + row + "</h3>");
                 break;
             // TODO ihorlt форму реєстрації

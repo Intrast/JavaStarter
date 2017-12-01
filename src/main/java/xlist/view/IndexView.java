@@ -43,7 +43,7 @@ public class IndexView {
     public  void outContentIndexPage(PrintWriter out, HttpSession session){
         User user = (User) session.getAttribute("user");
         if(user == null) {
-            out.write("<center><H2>Login</H2></center>");
+            out.write("<center><H2>Авторизація</H2></center>");
             out.write(pathHtmlSingleton.getLogin());
         } else {
             out.println("<h2>Ви зареєструвались як  " + user.getName() + "</h2>");
