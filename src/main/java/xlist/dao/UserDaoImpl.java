@@ -27,6 +27,7 @@ public class UserDaoImpl implements UserDao {
              ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE users.email=\"" + email + "\";");) {
             if(rs.next()){
                 //створюємо об'єкт класу User на основі даних отриманих із БД
+               System.out.print(email);
                 User user = new User(
                         rs.getLong("id"),
                         rs.getString("email"),
