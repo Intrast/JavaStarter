@@ -4,6 +4,7 @@ import xlist.dao.SharedNotesUserDao;
 import xlist.dao.SharedNotesUserDaoImpl;
 import xlist.dao.UserDaoImpl;
 import xlist.models.User;
+import xlist.view.PathHtmlSingleton;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +20,8 @@ import java.util.stream.Collectors;
 @WebServlet(name = "UserServlet", value = {"/user/*"})
 public class UserServlet extends HttpServlet {
 
+    private PathHtmlSingleton pathHtmlSingleton;
+
     private static Logger log = Logger.getLogger(UserServlet.class.getName());
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +33,7 @@ public class UserServlet extends HttpServlet {
 
         switch (request.getPathInfo()) {
             case "/register":
-                out.println("<h1>register form proccessed for user</h1>");
+//                pathHtmlSingleton.getRegistration();
                 break;
             case "/login":
                 // перевіряє логін форму, якщо неправильно введені дані повертає форму для перезаповнення
@@ -55,6 +58,7 @@ public class UserServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         switch (request.getPathInfo()) {
+
             case "/all-user":
                 //створюємо об'єкт для роботи із базою даних
                 SharedNotesUserDao sharedNotesUserDao = new SharedNotesUserDaoImpl();
@@ -71,10 +75,9 @@ public class UserServlet extends HttpServlet {
                 out.println("<h3>" + row + "</h3>");
                 break;
             // TODO ihorlt форму реєстрації
-            case "/register":
-                System.out.println("servlet register !!!");
-                out.println("<h1>hello unregistered user</h1>");
-                break;
+//            case "/register":
+//                pathHtmlSingleton.getRegistration();
+//                break;
         }
     }
 }

@@ -2,10 +2,9 @@ package xlist.dao;
 
 import xlist.models.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Клас, що реалізує методи інтерфейсу UserDao
@@ -42,6 +41,30 @@ public class UserDaoImpl implements UserDao {
         }  catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+
+    @Override
+    public User creatUser(String email, String password, String name) {
+        DataSource dataSource = new DataSource();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        String data = dtf.format(localDate); //2016/11/16
+        PreparedStatement stmt = null;
+
+        try (Connection con = dataSource.createConnection()) {
+
+            stmt = con.prepareStatement("INSERT INTO users(users.email,users.password,users.name," +
+                    "users.date,users.role)" +
+                    " VALUE ('" + email + "','" + password + "','" + name + "','"
+                    + data + "'," + "2" + ");");
+            stmt.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 }

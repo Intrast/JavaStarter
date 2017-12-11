@@ -20,6 +20,10 @@ public class IndexView {
         out.println(pathHtmlSingleton.getTop());
     }
 
+    public void outRegistration(PrintWriter out) {
+        out.println(pathHtmlSingleton.getRegistration());
+    }
+
     public void outBottomPage(PrintWriter out){
         out.println(pathHtmlSingleton.getBottom());
     }

@@ -21,6 +21,7 @@ public class PathHtmlSingleton {
      */
     private String top;
     private String menu;
+    private String registration;
     private String bottom;
     private String login;
 
@@ -32,6 +33,8 @@ public class PathHtmlSingleton {
 
     private PathHtmlSingleton() {
     }
+
+
 
     public String getPath() {
         return path;
@@ -68,6 +71,14 @@ public class PathHtmlSingleton {
     public String getLogin() {return login; }
 
     public void setLogin(String login) { this.login = getPartialHtml(login); }
+
+    public String getRegistration() {
+        return registration;
+    }
+
+    public void setRegistration(String registration) {
+        this.registration = getPartialHtml(registration);
+    }
 
     /**
      * Зчитує файл

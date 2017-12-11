@@ -21,6 +21,14 @@ CREATE TABLE list
   date        DATE         NOT NULL
 );
 
+CREATE TABLE task
+(
+  id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  task    VARCHAR(150) NOT NULL,
+  list_id     INT(11)      NOT NULL,
+  chek        INT(1)        NOT NULL
+);
+
 
 
 INSERT INTO `users` (`email`, `password`, `name`, `date`, `role`)
@@ -48,4 +56,16 @@ INSERT INTO `list` (`name`, `comment`, `user_id`, `date`)
 VALUES ("list3", "comment list3", 2, "2017-11-29");
 
 INSERT INTO `list` (`name`, `comment`, `user_id`, `date`)
-VALUES ("list4", "comment list4", 1,"2017-11-29");
+VALUES ("list4", "comment list4", 3,"2017-11-29");
+
+INSERT INTO `task` (`task`, `list_id`, `chek`)
+VALUES ("хліб", 1, 0);
+
+INSERT INTO `task` (`task`, `list_id`, `chek`)
+VALUES ("мука", 1, 0);
+
+INSERT INTO `task` (`task`, `list_id`, `chek`)
+VALUES ("прогулятися", 2, 0);
+
+INSERT INTO `task` (`task`, `list_id`, `chek`)
+VALUES ("нагадати", 1, 0);
